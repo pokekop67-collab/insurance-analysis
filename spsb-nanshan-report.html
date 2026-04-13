@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPSB 分析報告 · 南山人壽業務晨會</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:       #FAF8F5;
+    --bg2:      #F3EFE9;
+    --bg3:      #EDE7DE;
+    --ink:      #1C1A17;
+    --ink2:     #4A4640;
+    --ink3:     #8A8480;
+    --rose:     #B8607A;
+    --rose-lt:  #F4E0E6;
+    --rose-md:  #D9A0B0;
+    --sage:     #5A7A58;
+    --sage-lt:  #DFF0DC;
+    --sage-md:  #A0C49C;
+    --gold:     #B8893A;
+    --gold-lt:  #FAF0DC;
+    --gold-md:  #E0C07C;
+    --indigo:   #4A5C8A;
+    --indigo-lt:#DEE4F4;
+    --indigo-md:#9AAAD4;
+    --coral:    #C46848;
+    --coral-lt: #FAE8E0;
+    --coral-md: #E4A88A;
+    --purple:   #7A5C9A;
+    --purple-lt:#EDE4F8;
+    --purple-md:#C4AADC;
+    --line:     #E0D8CC;
+    --line2:    #D0C8BC;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page { max-width: 820px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+  /* ── Cover ── */
+  .cover {
+    padding: 5rem 0 3.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 3rem;
+  }
+  .cover-kana {
+    font-family: 'IM Fell English', serif;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cover-kana::before, .cover-kana::after {
+    content: '';
+    display: block;
+    height: 0.5px;
+    background: var(--line2);
+  }
+  .cover-kana::before { width: 28px; }
+  .cover-kana::after { flex: 1; }
+
+  .cover-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .cover-sub {
+    font-size: 0.9rem;
+    color: var(--ink3);
+    letter-spacing: 0.04em;
+    margin-bottom: 2rem;
+  }
+
+  .cover-meta {
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 14px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    border: 0.5px solid var(--line2);
+    margin-right: -0.5px;
+    color: var(--ink2);
+  }
+  .meta-pill:first-child { border-radius: 20px 0 0 20px; }
+  .meta-pill:last-child { border-radius: 0 20px 20px 0; }
+  .meta-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+  /* ── Section ── */
+  .section {
+    margin-bottom: 3.2rem;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .step-badge {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IM Fell English', serif;
+    font-size: 15px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    border: 0.5px solid;
+  }
+  .badge-rose   { background: var(--rose-lt);   color: var(--rose);   border-color: var(--rose-md); }
+  .badge-sage   { background: var(--sage-lt);   color: var(--sage);   border-color: var(--sage-md); }
+  .badge-gold   { background: var(--gold-lt);   color: var(--gold);   border-color: var(--gold-md); }
+  .badge-indigo { background: var(--indigo-lt); color: var(--indigo); border-color: var(--indigo-md); }
+  .badge-coral  { background: var(--coral-lt);  color: var(--coral);  border-color: var(--coral-md); }
+  .badge-purple { background: var(--purple-lt); color: var(--purple); border-color: var(--purple-md); }
+  .badge-dark   { background: #EDE7DE;           color: var(--ink2);   border-color: var(--line2); }
+  .badge-star   { background: var(--gold-lt);   color: var(--gold);   border-color: var(--gold-md); font-size: 18px; }
+
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+    line-height: 1.4;
+  }
+  .section-sub {
+    font-size: 0.78rem;
+    color: var(--ink3);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── HC Tags ── */
+  .hc {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10.5px;
+    font-family: 'IM Fell English', serif;
+    letter-spacing: 0.03em;
+    background: var(--gold-lt);
+    color: var(--gold);
+    border: 0.5px solid var(--gold-md);
+    margin: 1px 3px 1px 0;
+  }
+
+  /* ── Cards ── */
+  .card {
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 0.9rem;
+    border: 0.5px solid;
+    position: relative;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px; bottom: 12px;
+    width: 2.5px;
+    border-radius: 0 2px 2px 0;
+  }
+  .card-rose   { background: var(--rose-lt);   border-color: var(--rose-md);   }
+  .card-rose::before   { background: var(--rose); }
+  .card-sage   { background: var(--sage-lt);   border-color: var(--sage-md);   }
+  .card-sage::before   { background: var(--sage); }
+  .card-gold   { background: var(--gold-lt);   border-color: var(--gold-md);   }
+  .card-gold::before   { background: var(--gold); }
+  .card-indigo { background: var(--indigo-lt); border-color: var(--indigo-md); }
+  .card-indigo::before { background: var(--indigo); }
+  .card-coral  { background: var(--coral-lt);  border-color: var(--coral-md);  }
+  .card-coral::before  { background: var(--coral); }
+  .card-purple { background: var(--purple-lt); border-color: var(--purple-md); }
+  .card-purple::before { background: var(--purple); }
+  .card-neutral { background: var(--bg2); border-color: var(--line); }
+  .card-neutral::before { background: var(--line2); }
+
+  .card-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .lbl-rose   { color: var(--rose); }
+  .lbl-sage   { color: var(--sage); }
+  .lbl-gold   { color: var(--gold); }
+  .lbl-indigo { color: var(--indigo); }
+  .lbl-coral  { color: var(--coral); }
+  .lbl-purple { color: var(--purple); }
+  .lbl-neutral{ color: var(--ink3); }
+
+  .card-text { font-size: 0.875rem; line-height: 1.75; color: var(--ink); }
+
+  /* ── Grid ── */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.9rem; margin-bottom: 0.9rem; }
+
+  /* ── Claim pills ── */
+  .claim { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 3px; font-size: 11px; font-weight: 500; margin: 2px 2px 2px 0; }
+  .c-fact   { background: var(--sage-lt);   color: var(--sage);   border: 0.5px solid var(--sage-md); }
+  .c-infer  { background: var(--indigo-lt); color: var(--indigo); border: 0.5px solid var(--indigo-md); }
+  .c-value  { background: var(--purple-lt); color: var(--purple); border: 0.5px solid var(--purple-md); }
+  .c-verify { background: var(--coral-lt);  color: var(--coral);  border: 0.5px solid var(--coral-md); }
+
+  /* ── Row items ── */
+  .row-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 7px 0;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .row-item:last-child { border-bottom: none; }
+  .row-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+
+  /* ── Loop box ── */
+  .loop-box {
+    background: var(--bg2);
+    border: 0.5px solid var(--line);
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.75rem;
+  }
+  .loop-label {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  /* ── Arrows ── */
+  .arrow-flow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--ink2);
+  }
+  .af-node {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  .af-arrow { color: var(--line2); font-size: 13px; }
+  .af-tag   { padding: 2px 7px; border-radius: 3px; font-size: 10.5px; font-weight: 500; }
+
+  /* ── Matrix table ── */
+  .matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 0.9rem;
+  }
+  .matrix th {
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--line2);
+    white-space: nowrap;
+  }
+  .matrix td {
+    padding: 7px 10px;
+    border-bottom: 0.5px solid var(--line);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  .matrix tr:last-child td { border-bottom: none; }
+  .matrix tr:hover td { background: var(--bg2); }
+  .rating { font-size: 11px; font-weight: 500; padding: 1px 7px; border-radius: 3px; white-space: nowrap; }
+  .r-hi  { background: var(--sage-lt);   color: var(--sage);   }
+  .r-mid { background: var(--gold-lt);   color: var(--gold);   }
+  .r-lo  { background: var(--coral-lt);  color: var(--coral);  }
+
+  /* ── Rhetoric trio ── */
+  .trio {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+  .trio-card {
+    border-radius: 12px;
+    padding: 1.1rem;
+    border: 0.5px solid;
+  }
+  .trio-label {
+    font-family: 'IM Fell English', serif;
+    font-size: 18px;
+    margin-bottom: 6px;
+    display: block;
+  }
+  .trio-sub {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .trio-list { padding-left: 1rem; }
+  .trio-list li { font-size: 12.5px; line-height: 1.6; margin-bottom: 3px; color: var(--ink); }
+
+  /* ── 6-layer grid ── */
+  .six-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    margin-top: 0.75rem;
+  }
+  .six-cell {
+    text-align: center;
+  }
+  .six-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 500;
+    margin: 0 auto 5px;
+  }
+  .six-resist { font-size: 10px; color: var(--ink3); margin-bottom: 4px; line-height: 1.3; }
+  .six-tool   { font-size: 10.5px; color: var(--ink); line-height: 1.4; }
+
+  /* ── Synthesis ── */
+  .synthesis-wrap {
+    background: var(--bg2);
+    border: 1px solid var(--line2);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-top: 0.5rem;
+  }
+  .synthesis-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink3);
+    text-align: center;
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+  }
+  .synthesis-title::before, .synthesis-title::after {
+    content: '─';
+    color: var(--line2);
+  }
+  .insight-num {
+    font-family: 'IM Fell English', serif;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 3px;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    border: none;
+    border-top: 0.5px solid var(--line);
+    margin: 2.5rem 0;
+  }
+  .divider-ornament {
+    text-align: center;
+    margin: 2rem 0;
+    position: relative;
+  }
+  .divider-ornament::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    border-top: 0.5px solid var(--line);
+  }
+  .divider-ornament span {
+    position: relative;
+    background: var(--bg);
+    padding: 0 12px;
+    font-size: 11px;
+    color: var(--ink3);
+    letter-spacing: 0.15em;
+    font-family: 'IM Fell English', serif;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    padding-top: 2.5rem;
+    border-top: 0.5px solid var(--line);
+    font-size: 11px;
+    color: var(--ink3);
+    letter-spacing: 0.06em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* ── Utility ── */
+  ul { padding-left: 1.2rem; }
+  li { font-size: 0.875rem; line-height: 1.75; margin-bottom: 2px; }
+  h4 { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink3); margin-bottom: 8px; }
+  p  { font-size: 0.875rem; line-height: 1.8; }
+  small { font-size: 11px; color: var(--ink3); }
+
+  @media (max-width: 600px) {
+    .g2, .g3, .trio, .six-grid { grid-template-columns: 1fr; }
+    .six-grid { grid-template-columns: repeat(3, 1fr); }
+    .cover-title { font-size: 1.6rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║           COVER              ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <header class="cover">
+    <div class="cover-kana">SPSB · Minerva HC Framework · Mode A Complete</div>
+    <h1 class="cover-title">
+      南山人壽業務晨會<br>
+      <span style="font-weight:300; font-size:0.7em; color:var(--ink2);">超級解決問題大腦全系統分析</span>
+    </h1>
+    <p class="cover-sub">陳鴻安分享會 × 產品教育段 · 逐字稿深度解析 · 七步協議完整執行</p>
+    <div class="cover-meta">
+      <div class="meta-pill"><div class="meta-dot" style="background:var(--sage)"></div>七步全走</div>
+      <div class="meta-pill"><div class="meta-dot" style="background:var(--rose)"></div>邏輯謬誤掃描</div>
+      <div class="meta-pill"><div class="meta-dot" style="background:var(--indigo)"></div>系統動力學</div>
+      <div class="meta-pill"><div class="meta-dot" style="background:var(--gold)"></div>跨框架合成</div>
+    </div>
+  </header>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 0: 元認知          ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-dark">0</div>
+      <div>
+        <div class="section-title">元認知防護罩啟動</div>
+        <div class="section-sub">分析開始前的偏誤掃描 <span class="hc">#confirmation_bias</span><span class="hc">#meta_knowledge</span><span class="hc">#self_awareness</span></div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div class="card card-rose">
+        <div class="card-label lbl-rose">#confirmation_bias 警示</div>
+        <p class="card-text">演講情感張力極強，分析者容易不自覺認同演講者的世界觀。需刻意反問：哪些論點有邏輯跳躍？哪些主張缺乏實證支撐？</p>
+      </div>
+      <div class="card card-gold">
+        <div class="card-label lbl-gold">#interpretive_bias 警示</div>
+        <p class="card-text">從業務管理視角看，這是激勵演講；從員工福利視角看，部分論述存在高壓文化風險。兩個框架須同時保留，不偏廢。</p>
+      </div>
+    </div>
+    <div class="card card-indigo">
+      <div class="card-label lbl-indigo">#meta_knowledge 範圍確認</div>
+      <p class="card-text">本文為台灣壽險業務晨會逐字稿，含專業術語（MDRT、COT、競賽制度、商品代碼）。本次分析以邏輯結構與說服機制為核心，不以商品合規或法規遵循作為評估標準。</p>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step I</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 1: 問題診斷        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-sage">I</div>
+      <div>
+        <div class="section-title">問題診斷 — 這場晨會在解決什麼？</div>
+        <div class="section-sub"><span class="hc">#right_problem</span><span class="hc">#gap_analysis</span><span class="hc">#levels_of_analysis</span><span class="hc">#purpose</span></div>
+      </div>
+    </div>
+
+    <div class="card card-sage" style="margin-bottom:1.2rem;">
+      <div class="card-label lbl-sage">#right_problem · 三層問題重定義</div>
+      <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:6px;">
+        <div>
+          <div style="font-size:10px;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;">表面問題</div>
+          <p class="card-text">競賽氛圍低落、出席率差、業績不穩定</p>
+        </div>
+        <div style="border-left:0.5px solid var(--sage-md); padding-left:12px;">
+          <div style="font-size:10px;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;">深層問題</div>
+          <p class="card-text">身份認同模糊——業務員不知道自己是誰、為何而做</p>
+        </div>
+        <div style="border-left:0.5px solid var(--sage-md); padding-left:12px;">
+          <div style="font-size:10px;letter-spacing:.08em;color:var(--ink3);margin-bottom:4px;">根本問題</div>
+          <p class="card-text">信念缺失 × 肌肉記憶未建立 → 任何外部刺激都只能短暫有效</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div>
+        <h4>#gap_analysis 差距分析</h4>
+        <div class="loop-box">
+          <div class="row-item" style="padding-top:0;">
+            <div class="row-dot" style="background:var(--sage)"></div>
+            <div><small>目標狀態</small><br><span style="font-size:13.5px;">自律、持續高產、信念驅動的業務員</span></div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--coral)"></div>
+            <div><small>現狀描述</small><br><span style="font-size:13.5px;">被動、偶爾努力、用情緒上班</span></div>
+          </div>
+          <div class="row-item" style="border:none;padding-bottom:0;">
+            <div class="row-dot" style="background:var(--gold)"></div>
+            <div><small>差距維度</small><br><span style="font-size:13.5px;">定位認知層 / 習慣系統層 / 信念驅動層</span></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>#levels_of_analysis 多層次掃描</h4>
+        <div class="loop-box">
+          <div class="row-item" style="padding-top:0;">
+            <div class="row-dot" style="background:var(--sage)"></div>
+            <div><small>個人層</small><br><span style="font-size:13px;">業務員的自我認知、工作習慣、信念系統</span></div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--indigo)"></div>
+            <div><small>團隊層</small><br><span style="font-size:13px;">競賽氛圍缺失，環境無法提供正向壓力</span></div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--gold)"></div>
+            <div><small>組織層</small><br><span style="font-size:13px;">南山規模已大到投資部門比業務通路更重要</span></div>
+          </div>
+          <div class="row-item" style="border:none;padding-bottom:0;">
+            <div class="row-dot" style="background:var(--purple)"></div>
+            <div><small>系統層</small><br><span style="font-size:13px;">保險的社會意義：每個客戶背後的家庭安全</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step II</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 2: 資訊審計        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-gold">II</div>
+      <div>
+        <div class="section-title">資訊審計 — 哪些是事實，哪些是推論？</div>
+        <div class="section-sub"><span class="hc">#assertions</span><span class="hc">#source_quality</span><span class="hc">#information_needed</span><span class="hc">#sampling</span></div>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;">
+      <span class="claim c-fact">[實證]</span>
+      <span class="claim c-infer">[推論]</span>
+      <span class="claim c-value">[價值判斷]</span>
+      <span class="claim c-verify">[待驗證]</span>
+    </div>
+
+    <div class="g2">
+      <div>
+        <h4>主要主張分類清單</h4>
+        <div class="loop-box" style="padding:.75rem 1rem;">
+          <div class="row-item" style="padding-top:0;">
+            <span class="claim c-fact" style="flex-shrink:0">[實證]</span>
+            <span style="font-size:13px;">南山市值五兆、業務通路年業績約 2,000 億</span>
+          </div>
+          <div class="row-item">
+            <span class="claim c-fact" style="flex-shrink:0">[實證]</span>
+            <span style="font-size:13px;">陳鴻安：12年資歷、MDRT終身會員、COT多次、CFP、RFA、高齡金融規劃師</span>
+          </div>
+          <div class="row-item">
+            <span class="claim c-infer" style="flex-shrink:0">[推論]</span>
+            <span style="font-size:13px;">投資部門比業務通路更重要（數字有支撐但邏輯有跳躍）</span>
+          </div>
+          <div class="row-item">
+            <span class="claim c-infer" style="flex-shrink:0">[推論]</span>
+            <span style="font-size:13px;">環境影響行為的效果大於意志力</span>
+          </div>
+          <div class="row-item">
+            <span class="claim c-value" style="flex-shrink:0">[價值]</span>
+            <span style="font-size:13px;">「偶爾努力 = 一直不成功」（道德評判，非數據）</span>
+          </div>
+          <div class="row-item" style="border:none;padding-bottom:0;">
+            <span class="claim c-verify" style="flex-shrink:0">[待驗證]</span>
+            <span style="font-size:13px;">增員公式：一年4人 + 2-3組 = 上榮譽會（可複製性？）</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>#information_needed · 關鍵資訊缺口</h4>
+        <div class="card card-coral">
+          <div class="card-label lbl-coral">影響決策的關鍵缺口</div>
+          <ul>
+            <li>使用相同公式成功的業務員比例是多少？</li>
+            <li>上競賽者的業績提升幅度有系統性數據嗎？</li>
+            <li>高壓激勵法 vs 低壓環境的實證比較研究？</li>
+            <li>癌症理賠案例是典型案例還是極端案例？</li>
+          </ul>
+        </div>
+        <div class="card card-indigo">
+          <div class="card-label lbl-indigo">#source_quality · 來源品質評估</div>
+          <p class="card-text">演講者作為一手來源，可信度高（ethos 強）；但有利益一致性問題——她本人也在增員，成功案例的呈現可能有選擇性偏差。訊息須以此為前提解讀。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step III</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 3: 推論品質        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-coral">III</div>
+      <div>
+        <div class="section-title">推論品質檢查 — 論證站得住腳嗎？</div>
+        <div class="section-sub"><span class="hc">#logical_fallacies</span><span class="hc">#deductions</span><span class="hc">#plausibility</span><span class="hc">#testability</span></div>
+      </div>
+    </div>
+
+    <h4 style="margin-bottom:10px;">核心邏輯鏈拆解</h4>
+    <div class="loop-box" style="margin-bottom:1.2rem;">
+      <div style="margin-bottom:10px;">
+        <div class="arrow-flow">
+          <span class="af-node" style="background:var(--sage-lt);color:var(--sage);">業務員有明確職責定義</span>
+          <span class="af-arrow">→</span>
+          <span>大多數人未盡職</span>
+          <span class="af-arrow">→</span>
+          <span>原因是身份認同/信念缺失</span>
+          <span class="af-tag" style="background:var(--sage-lt);color:var(--sage);border:0.5px solid var(--sage-md);">✓ 邏輯有效</span>
+        </div>
+      </div>
+      <div style="margin-bottom:10px;">
+        <div class="arrow-flow">
+          <span>上競賽 = 好環境</span>
+          <span class="af-arrow">→</span>
+          <span>好環境 = 更好結果</span>
+          <span class="af-tag" style="background:var(--gold-lt);color:var(--gold);border:0.5px solid var(--gold-md);">⚠ 忽略其他因素</span>
+        </div>
+      </div>
+      <div>
+        <div class="arrow-flow">
+          <span>客戶故事觸動情感</span>
+          <span class="af-arrow">→</span>
+          <span>保險有意義</span>
+          <span class="af-arrow">→</span>
+          <span>你應該更努力</span>
+          <span class="af-tag" style="background:var(--coral-lt);color:var(--coral);border:0.5px solid var(--coral-md);">⚠ 邏輯有跳躍</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="g2">
+      <div>
+        <h4>邏輯謬誤分析</h4>
+        <div class="loop-box">
+          <div class="row-item" style="padding-top:0;">
+            <div class="row-dot" style="background:var(--coral)"></div>
+            <div>
+              <span style="font-size:11px;font-weight:500;color:var(--coral);">循環論證風險</span><br>
+              <span style="font-size:12.5px;color:var(--ink2);">「上競賽的人業績好」← 可能是因為業績好的人才能上競賽，而非競賽讓人業績好</span>
+            </div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--gold)"></div>
+            <div>
+              <span style="font-size:11px;font-weight:500;color:var(--gold);">訴諸極端案例</span><br>
+              <span style="font-size:12.5px;color:var(--ink2);">癌症理賠 200 萬的案例不代表所有保險都能創造如此具體的家庭保障</span>
+            </div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--gold)"></div>
+            <div>
+              <span style="font-size:11px;font-weight:500;color:var(--gold);">假二分框架</span><br>
+              <span style="font-size:12.5px;color:var(--ink2);">自然人/可燃人/不可燃人三分法過度簡化，忽略情境、生命週期等因素</span>
+            </div>
+          </div>
+          <div class="row-item" style="border:none;padding-bottom:0;">
+            <div class="row-dot" style="background:var(--sage)"></div>
+            <div>
+              <span style="font-size:11px;font-weight:500;color:var(--sage);">但情感訴求 ≠ 謬誤</span><br>
+              <span style="font-size:12.5px;color:var(--ink2);">Pathos 在說服中是合法工具；問題在於是否被用來替代邏輯，而非補充邏輯</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>快速驗證三連擊</h4>
+        <div class="card card-sage" style="margin-bottom:0.7rem;">
+          <div class="card-label lbl-sage">#plausibility 氣味測試</div>
+          <p class="card-text">整體論述與業務管理實踐高度吻合——信念驅動、環境設計、習慣優先於意志力，這些主張在行為科學中均有實證基礎。<strong>通過。</strong></p>
+        </div>
+        <div class="card card-gold" style="margin-bottom:0.7rem;">
+          <div class="card-label lbl-gold">#estimation 費米驗算</div>
+          <p class="card-text">一年增員4人+生2-3組：若每組月均業績15萬，6組=90萬加權，加上個人業績，接近榮譽會門檻。數量級合理，但假設條件多。</p>
+        </div>
+        <div class="card card-indigo">
+          <div class="card-label lbl-indigo">#testability 可否證性</div>
+          <p class="card-text">「環境比意志力更重要」可追蹤競賽參與者 vs 非參與者的業績變化驗證。但因樣本選擇偏誤（積極者更願上競賽），因果難以確立。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step IV</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 4: 系統思考        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-purple">IV</div>
+      <div>
+        <div class="section-title">系統思考 — 這個業務體系的全局是什麼？</div>
+        <div class="section-sub"><span class="hc">#systems_dynamics</span><span class="hc">#emergent_properties</span><span class="hc">#game_theory</span><span class="hc">#networks</span></div>
+      </div>
+    </div>
+
+    <div class="g2" style="margin-bottom:1rem;">
+      <div>
+        <div class="loop-box">
+          <div class="loop-label" style="color:var(--sage);">▲ 正反饋 — 良性循環</div>
+          <div class="arrow-flow" style="font-size:12px;">
+            <span class="af-node" style="background:var(--sage-lt);color:var(--sage);">上競賽</span>
+            <span class="af-arrow">→</span>優秀人才<span class="af-arrow">→</span>學習<span class="af-arrow">→</span>業績↑<span class="af-arrow">→</span>
+            <span class="af-node" style="background:var(--sage-lt);color:var(--sage);">再上競賽 ↻</span>
+          </div>
+        </div>
+        <div class="loop-box">
+          <div class="loop-label" style="color:var(--coral);">▼ 正反饋 — 惡性循環</div>
+          <div class="arrow-flow" style="font-size:12px;">
+            <span class="af-node" style="background:var(--coral-lt);color:var(--coral);">偶爾努力</span>
+            <span class="af-arrow">→</span>小成就<span class="af-arrow">→</span>滿足<span class="af-arrow">→</span>退步<span class="af-arrow">→</span>
+            <span class="af-node" style="background:var(--coral-lt);color:var(--coral);">更不努力 ↻</span>
+          </div>
+        </div>
+        <div class="loop-box" style="margin-bottom:0;">
+          <div class="loop-label" style="color:var(--indigo);">— 負反饋 — 維持現狀（穩定點）</div>
+          <div class="arrow-flow" style="font-size:12px;">
+            競賽氛圍低<span class="af-arrow">→</span>個人無動力<span class="af-arrow">→</span>氛圍持續低 <span style="color:var(--line2);">↻</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>關鍵槓桿點識別</h4>
+        <div class="card card-purple">
+          <div class="card-label lbl-purple">三個槓桿點，優先序</div>
+          <div class="row-item" style="padding-top:0;">
+            <div class="row-dot" style="background:var(--purple)"></div>
+            <div><span style="font-size:12.5px;font-weight:500;">① 信念（陳鴻安的核心答案）</span><br><small>改變信念 = 改變所有下游行為；但信念最難從外部植入</small></div>
+          </div>
+          <div class="row-item">
+            <div class="row-dot" style="background:var(--sage)"></div>
+            <div><span style="font-size:12.5px;font-weight:500;">② 環境設計（行為科學答案）</span><br><small>競賽 = nudge，把好行為變成最容易的選擇</small></div>
+          </div>
+          <div class="row-item" style="border:none;padding-bottom:0;">
+            <div class="row-dot" style="background:var(--gold)"></div>
+            <div><span style="font-size:12.5px;font-weight:500;">③ 習慣系統（肌肉記憶）</span><br><small>一旦建立，不需意志力維持；需要初始能量突破惰性</small></div>
+          </div>
+        </div>
+
+        <div class="card card-gold" style="margin-top:0.7rem;">
+          <div class="card-label lbl-gold">#emergent_properties 湧現</div>
+          <p class="card-text">個體業務員信念的累積 → 通訊處整體文化氛圍（這個整體屬性無法從單一業務員層面直接操縱）。陳鴻安的演講正是試圖通過改變個體信念，進而湧現出不同的集體文化。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-indigo">
+      <div class="card-label lbl-indigo">#game_theory · 三角博弈結構</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:6px;">
+        <div>
+          <div style="font-size:10.5px;color:var(--ink3);margin-bottom:4px;">公司 vs 業務員</div>
+          <p class="card-text">看似利益一致，但「投資部門更重要」的揭露顯示業務員的不可替代性正在降低——這是結構性的隱憂。</p>
+        </div>
+        <div style="border-left:0.5px solid var(--indigo-md);padding-left:12px;">
+          <div style="font-size:10.5px;color:var(--ink3);margin-bottom:4px;">業務員之間</div>
+          <p class="card-text">競賽製造正向競爭，但結構類似囚徒困境：如果大家都偶爾努力，整體文化崩解；如果都全力投入，氛圍改變。</p>
+        </div>
+        <div style="border-left:0.5px solid var(--indigo-md);padding-left:12px;">
+          <div style="font-size:10.5px;color:var(--ink3);margin-bottom:4px;">業務員 vs 客戶</div>
+          <p class="card-text">非零和：好保險 = 客戶受保護 + 業務員有業績。但「賣出保險」≠「賣出對的保險」——這條線需要專業倫理維持。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step V</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 5: 方案評估        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-rose">V</div>
+      <div>
+        <div class="section-title">方案評估 — 演講提出了哪些解法，效果幾何？</div>
+        <div class="section-sub"><span class="hc">#payoffs</span><span class="hc">#utility</span><span class="hc">#constraints</span><span class="hc">#sunk_cost</span></div>
+      </div>
+    </div>
+
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th>解法方案</th>
+          <th>期望值</th>
+          <th>執行難度</th>
+          <th>可複製性</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>建立信念系統（be → do → have）</td>
+          <td><span class="rating r-hi">高</span></td>
+          <td><span class="rating r-lo">難</span></td>
+          <td><span class="rating r-lo">低</span></td>
+        </tr>
+        <tr>
+          <td>建立工作習慣（晨會出席 / 百分卡 / 肌肉記憶）</td>
+          <td><span class="rating r-hi">高</span></td>
+          <td><span class="rating r-mid">中</span></td>
+          <td><span class="rating r-hi">高</span></td>
+        </tr>
+        <tr>
+          <td>環境設計（上競賽 / 加入優秀群體）</td>
+          <td><span class="rating r-hi">中高</span></td>
+          <td><span class="rating r-hi">易</span></td>
+          <td><span class="rating r-hi">高</span></td>
+        </tr>
+        <tr>
+          <td>增員公式（一年 4 人 / 生 2-3 組）</td>
+          <td><span class="rating r-mid">中</span></td>
+          <td><span class="rating r-mid">中</span></td>
+          <td><span class="rating r-mid">中</span></td>
+        </tr>
+        <tr>
+          <td>退休金行銷話術（數字化說服框架）</td>
+          <td><span class="rating r-hi">高</span></td>
+          <td><span class="rating r-hi">易</span></td>
+          <td><span class="rating r-hi">高</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="card card-gold">
+      <div class="card-label lbl-gold">#sunk_cost · 決策陷阱提示</div>
+      <p class="card-text">演講隱含一個危險框架：「你已經進來了，不努力就是浪費」——這是典型的沉沒成本論證。真正的決策應基於未來的邊際收益，而非過去的投入。不過，在激勵演講的脈絡中，這個框架有其實用性：業務員往往低估自己的未來潛力，需要一個錨點推他們向前，而不是理性地重新評估職業選擇。</p>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Step VI</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║       Step 6: 溝通策略        ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-indigo">VI</div>
+      <div>
+        <div class="section-title">溝通策略解析 — 陳鴻安如何說服聽眾？</div>
+        <div class="section-sub"><span class="hc">#cognitive_persuasion</span><span class="hc">#emotional_persuasion</span><span class="hc">#audience</span><span class="hc">#confidence</span><span class="hc">#nudge</span></div>
+      </div>
+    </div>
+
+    <h4 style="margin-bottom:10px;">亞里斯多德修辭三角 × 陳鴻安版本</h4>
+    <div class="trio" style="margin-bottom:1.2rem;">
+      <div class="trio-card" style="background:var(--indigo-lt); border-color:var(--indigo-md);">
+        <span class="trio-label" style="color:var(--indigo);">Ethos</span>
+        <span class="trio-sub" style="color:var(--indigo);">可信度建立</span>
+        <ul class="trio-list">
+          <li>12年資歷，從無到 MDRT 終身</li>
+          <li>COT 多次、CFP、RFA</li>
+          <li>高齡金融規劃師、保險公會優秀人員</li>
+          <li style="color:var(--sage);font-weight:500;">策略亮點：身體不適仍來演講，以行動示範「肌肉記憶」的存在，把自身的痛苦轉化為論點的活證據</li>
+        </ul>
+      </div>
+      <div class="trio-card" style="background:var(--rose-lt); border-color:var(--rose-md);">
+        <span class="trio-label" style="color:var(--rose);">Pathos</span>
+        <span class="trio-sub" style="color:var(--rose);">情感共鳴</span>
+        <ul class="trio-list">
+          <li>個人故事：大學離家出走→MDRT</li>
+          <li>丹提打工被懷疑偷錢的委屈</li>
+          <li>癌症客戶 200 萬理賠，六月離世</li>
+          <li>殯儀館最小廳：「那是你一生的總結」</li>
+          <li>子女嗷嗷待哺，老婆抱鈔票哭還是枕頭哭</li>
+        </ul>
+      </div>
+      <div class="trio-card" style="background:var(--sage-lt); border-color:var(--sage-md);">
+        <span class="trio-label" style="color:var(--sage);">Logos</span>
+        <span class="trio-sub" style="color:var(--sage);">邏輯論證</span>
+        <ul class="trio-list">
+          <li>南山市值 → 一兆 × 1% = 100億</li>
+          <li>退休金精算：1,080萬→450萬→220萬</li>
+          <li>增員公式：4人/年 + 生2-3組</li>
+          <li>ARUE 商品收益試算（總領 820 萬）</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card card-purple">
+      <div class="card-label lbl-purple">核心溝通結構：先破後立 × TOC 六層抗拒完整應用</div>
+      <div class="six-grid" style="margin-top:0.75rem;">
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">1</div>
+          <div class="six-resist">不認同問題</div>
+          <div class="six-tool">市值數據強制對焦現實</div>
+        </div>
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">2</div>
+          <div class="six-resist">不認同解法</div>
+          <div class="six-tool">個人故事示範解法可行</div>
+        </div>
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">3</div>
+          <div class="six-resist">不信效果</div>
+          <div class="six-tool">具體公式 + 實際案例</div>
+        </div>
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">4</div>
+          <div class="six-resist">擔心副作用</div>
+          <div class="six-tool">重框：痛苦 = 成長</div>
+        </div>
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">5</div>
+          <div class="six-resist">看到障礙</div>
+          <div class="six-tool">習慣降低執行門檻</div>
+        </div>
+        <div class="six-cell">
+          <div class="six-num" style="background:var(--purple-lt);color:var(--purple);">6</div>
+          <div class="six-resist">未表達恐懼</div>
+          <div class="six-tool">自我揭露建立安全感</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider-ornament"><span>Synthesis</span></div>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║         SYNTHESIS             ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <section class="section">
+    <div class="section-header">
+      <div class="step-badge badge-star">★</div>
+      <div>
+        <div class="section-title">跨框架合成 — 單一框架看不到的核心洞察</div>
+        <div class="section-sub">SPSB × TOC × 修辭學 × 行為科學 · 交叉比對後的高階結論</div>
+      </div>
+    </div>
+
+    <div class="synthesis-wrap">
+      <div class="synthesis-title">五個跨框架洞察</div>
+
+      <div class="card card-purple" style="margin-bottom:1rem;">
+        <div class="insight-num">Insight 01</div>
+        <div class="card-label lbl-purple">瓶頸不是技能，是身份認同（Identity Constraint）</div>
+        <p class="card-text">陳鴻安正確識別了 TOC 意義上的「範式制約」——業務員的限制不在於產品知識不足，也不在於客戶太難接觸，而在於對「我是誰」沒有清晰的答案。這是最難突破但突破後效果最大的制約類型。她的整場演講，就是一次針對範式制約的攻堅行動。</p>
+      </div>
+
+      <div class="card card-sage" style="margin-bottom:1rem;">
+        <div class="insight-num">Insight 02</div>
+        <div class="card-label lbl-sage">競賽設計本身就是 Nudge，而非只是獎勵機制</div>
+        <p class="card-text">「不要用意志力戰勝環境」是行為經濟學的核心命題（<span class="hc">#nudge</span>）。競賽的真正功能不是獎金，而是把「接觸更優秀的人」變成最容易的選擇，把「展現高投入度」變成參與的默認行為。這是環境設計對意志力的降維打擊。</p>
+      </div>
+
+      <div class="card card-gold" style="margin-bottom:1rem;">
+        <div class="insight-num">Insight 03</div>
+        <div class="card-label lbl-gold">be → do → have 的系統邏輯：輸出無法倒流成輸入</div>
+        <p class="card-text">這個框架對應系統動力學的輸入—過程—輸出模型：信念(be)是輸入，習慣(do)是過程，業績(have)是輸出。大多數失敗的業務員試圖逆序運作——先期待 have 出現，再決定 be——這在系統層面是確定失敗的，因為輸出無法倒流成為輸入。</p>
+      </div>
+
+      <div class="card card-coral" style="margin-bottom:1rem;">
+        <div class="insight-num">Insight 04</div>
+        <div class="card-label lbl-coral">演講本身就是 TOC 六層抗拒的完整示範（可能是無意識的）</div>
+        <p class="card-text">Dettmer 的變革管理六層抗拒，在這場演講中被陳鴻安幾乎完整走了一遍：強制對焦現實（層1）→ 個人故事（層2）→ 增員公式（層3）→ 痛苦重框（層4）→ 習慣降低門檻（層5）→ 自我揭露建立安全（層6）。這是一個罕見的、可被解剖分析的說服完整案例，可直接作為修辭學教材。</p>
+      </div>
+
+      <div class="card card-rose" style="margin-bottom:0;">
+        <div class="insight-num">Insight 05</div>
+        <div class="card-label lbl-rose">「南山投資部門更重要」的揭露是高風險的雙刃策略</div>
+        <p class="card-text">這個論點的邏輯是「你沒有那麼重要，所以你的價值要自己創造」，試圖將潛在的挫敗感轉化為自主性動力。但這個操作只對特定心理類型有效（有強烈自主需求的人）。對另一類業務員而言，這個揭露可能強化「做再多也沒意義」的虛無感。這是 <span class="hc">#audience</span> 分析不夠細緻的地方——一個資訊對不同受眾可能產生截然相反的效果。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ╔══════════════════════════════╗ -->
+  <!-- ║           FOOTER              ║ -->
+  <!-- ╚══════════════════════════════╝ -->
+  <footer class="footer">
+    <span>SPSB · Minerva HC Framework · 95 Habits of Mind</span>
+    <span style="font-family:'IM Fell English',serif;font-style:italic;">超級解決問題大腦 · 全系統分析</span>
+  </footer>
+
+</div>
+</body>
+</html>
